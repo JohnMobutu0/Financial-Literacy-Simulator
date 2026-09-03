@@ -1,14 +1,51 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Helloo, " + name + "!")
+/*
+Concept Note: https://docs.google.com/document/d/1wk01w4CUkNXCvizfFDzaocq1x0OpOTGvsyAuYIm0ppw/edit?usp=sharing
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+Group members:
+166010 — Cirhuza Mulumeoderhwa John
+168837 — Mary Mutobu
+171369 — Abdalla Zulekha Omar
+192401 — Trizah Bosibori
+167297 — Bryton Marxmillian
+*/
+
+fun main() {
+    println("========================================================\n" +
+            "Investment and Saving Simulator \n" +
+            "=========================================================")
+
+
+
+    println("Enter your name: ")
+    var user_name = readLine()
+
+    val user_id = "001"
+    var user_balance: Double = 50_000.0
+    val platform1 = "MMFs" //Money Market Funds
+    val platform2 = "SS" //SACCO Shares
+    val platform3 = "NSES" //NSE Stocks
+    val platform4 = "FD" //Fixed Deposits
+    val platform5 = "TB" //Treasury Bonds
+    val platform6 = "HRSS" //High-Risk Scam Simulation
+    var platform_chosen = ""
+
+    do {
+        println("Enter the platform chosen: (either `MMFs` for Money Market Funds or `SS` SACCO Shares or `NSES` for NSE Stocks or `FD` for Fixed Deposits or `TB` Treasury Bonds or HRSS for High-Risk Scam Simulation)")
+        platform_chosen = readln()
+    } while (!(platform_chosen.lowercase() == platform1.lowercase() || platform_chosen.lowercase() == platform2.lowercase() || platform_chosen.lowercase() == platform3.lowercase() || platform_chosen.lowercase() == platform4.lowercase() || platform_chosen.lowercase() == platform5.lowercase() || platform_chosen.lowercase() == platform6.lowercase()))
+
+    if (platform_chosen.lowercase() == platform1.lowercase()) {
+        platform_chosen = "Money Market Funds"
+
     }
+
+
+
+    println("--------------------------------------\n" +
+            "Simulator\n" +
+            "--------------------------------------\n" +
+            "User name: $user_name \n" +
+            "Initial Balance: $user_balance \n" +
+            "Simulated Platform: $platform_chosen\n" +
+            "---------------------------------------")
 }
