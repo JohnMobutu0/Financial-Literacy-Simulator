@@ -66,9 +66,7 @@ fun main() {
         }
         println("---------------------------------------")
 
-    }
-
-    if (platform_chosen.lowercase() == platform2.lowercase()) {
+    } else if (platform_chosen.lowercase() == platform2.lowercase()) {
         platform_chosen = "SACCO Shares"
 
 
@@ -87,9 +85,7 @@ fun main() {
         }
         println("---------------------------------------")
 
-    }
-
-    if (platform_chosen.lowercase() == platform3.lowercase()) {
+    } else if (platform_chosen.lowercase() == platform3.lowercase()) {
         platform_chosen = "NSE Stocks"
 
 
@@ -109,9 +105,7 @@ fun main() {
         }
         println("---------------------------------------")
 
-    }
-
-    if (platform_chosen.lowercase() == platform4.lowercase()) {
+    } else if (platform_chosen.lowercase() == platform4.lowercase()) {
         platform_chosen = "Fixed Depositss"
 
 
@@ -130,9 +124,7 @@ fun main() {
         }
         println("---------------------------------------")
 
-    }
-
-    if (platform_chosen.lowercase() == platform5.lowercase()) {
+    } else if (platform_chosen.lowercase() == platform5.lowercase()) {
         platform_chosen = "Treasury Bonds"
 
 
