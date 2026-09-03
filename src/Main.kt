@@ -28,24 +28,40 @@ fun main() {
     val platform5 = "TB" //Treasury Bonds
     val platform6 = "HRSS" //High-Risk Scam Simulation
     var platform_chosen = ""
+    var fund1 = "Fund A"
+    var annual_yield = "10.5%"
+    var management_fees = 0.001 // 1.0%
+    var risk = "Low"
+    var min_investemt = 1_000.0
+    var treasury_bills = 0.5 // 50%
+    var bank_deposits = 0.3 // 30%
+    var corporation_deposits = 0.4 // 40%
+
 
     do {
-        println("Enter the platform chosen: (either `MMFs` for Money Market Funds or `SS` SACCO Shares or `NSES` for NSE Stocks or `FD` for Fixed Deposits or `TB` Treasury Bonds or HRSS for High-Risk Scam Simulation)")
+        println("Enter the name of platform: (either `MMFs` for Money Market Funds or `SS` SACCO Shares or `NSES` for NSE Stocks or `FD` for Fixed Deposits or `TB` Treasury Bonds or HRSS for High-Risk Scam Simulation)")
         platform_chosen = readln()
     } while (!(platform_chosen.lowercase() == platform1.lowercase() || platform_chosen.lowercase() == platform2.lowercase() || platform_chosen.lowercase() == platform3.lowercase() || platform_chosen.lowercase() == platform4.lowercase() || platform_chosen.lowercase() == platform5.lowercase() || platform_chosen.lowercase() == platform6.lowercase()))
 
     if (platform_chosen.lowercase() == platform1.lowercase()) {
         platform_chosen = "Money Market Funds"
 
+
+        println("--------------------------------------\n" +
+                "Simulator\n" +
+                "--------------------------------------\n" +
+                "User name: $user_name \n" +
+                "Initial Balance: $user_balance \n" +
+                "Simulated Platform: $platform_chosen\n" +
+                "Name of the Fund: $fund1\n" +
+                "Annual Yield: $annual_yield\n"
+                )
+        for (month in 1..12) {
+            println("Month: $month")
+
+        }
+        println("---------------------------------------")
+
     }
 
-
-
-    println("--------------------------------------\n" +
-            "Simulator\n" +
-            "--------------------------------------\n" +
-            "User name: $user_name \n" +
-            "Initial Balance: $user_balance \n" +
-            "Simulated Platform: $platform_chosen\n" +
-            "---------------------------------------")
 }
