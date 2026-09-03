@@ -36,6 +36,8 @@ fun main() {
     var treasury_bills = 0.5 // 50%
     var bank_deposits = 0.3 // 30%
     var corporation_deposits = 0.4 // 40%
+    var current_ivestemnt_value = user_balance
+    var growth_rate = 0.2 //20%
 
 
     do {
@@ -54,14 +56,103 @@ fun main() {
                 "Initial Balance: $user_balance \n" +
                 "Simulated Platform: $platform_chosen\n" +
                 "Name of the Fund: $fund1\n" +
-                "Annual Yield: $annual_yield\n"
+                "Annual Yield: $annual_yield\n\n"
                 )
-        for (month in 1..12) {
+        for (month in 1..12 step 2) {
+            current_ivestemnt_value = (user_balance * month * growth_rate) - (user_balance * management_fees)
             println("Month: $month")
+            println("Current Investment Value: $current_ivestemnt_value")
 
         }
         println("---------------------------------------")
 
     }
+
+    if (platform_chosen.lowercase() == platform2.lowercase()) {
+        platform_chosen = "SACCO Shares"
+
+
+        println("--------------------------------------\n" +
+                "Simulator\n" +
+                "--------------------------------------\n" +
+                "User name: $user_name \n" +
+                "Initial Balance: $user_balance \n" +
+                "Simulated Platform: $platform_chosen\n\n"
+        )
+        for (month in 1..12 step 2) {
+            current_ivestemnt_value = (user_balance * month * growth_rate)
+            println("Month: $month")
+            println("Current Investment Value: $current_ivestemnt_value")
+
+        }
+        println("---------------------------------------")
+
+    }
+
+    if (platform_chosen.lowercase() == platform3.lowercase()) {
+        platform_chosen = "NSE Stocks"
+
+
+        println("--------------------------------------\n" +
+                "Simulator\n" +
+                "--------------------------------------\n" +
+                "User name: $user_name \n" +
+                "Initial Balance: $user_balance \n" +
+                "Simulated Platform: $platform_chosen\n" +
+                "Annual Yield: $annual_yield\n"
+        )
+        for (month in 1..12 step 2) {
+            current_ivestemnt_value = (user_balance * month * growth_rate)
+            println("Month: $month")
+            println("Current Investment Value: $current_ivestemnt_value")
+
+        }
+        println("---------------------------------------")
+
+    }
+
+    if (platform_chosen.lowercase() == platform4.lowercase()) {
+        platform_chosen = "Fixed Depositss"
+
+
+        println("--------------------------------------\n" +
+                "Simulator\n" +
+                "--------------------------------------\n" +
+                "User name: $user_name \n" +
+                "Initial Balance: $user_balance \n" +
+                "Simulated Platform: $platform_chosen\n\n"
+        )
+        for (month in 1..12 step 2) {
+            current_ivestemnt_value = (user_balance * month * growth_rate) - (user_balance * management_fees)
+            println("Month: $month")
+            println("Current Investment Value: $current_ivestemnt_value")
+
+        }
+        println("---------------------------------------")
+
+    }
+
+    if (platform_chosen.lowercase() == platform5.lowercase()) {
+        platform_chosen = "Treasury Bonds"
+
+
+        println("--------------------------------------\n" +
+                "Simulator\n" +
+                "--------------------------------------\n" +
+                "User name: $user_name \n" +
+                "Initial Balance: $user_balance \n" +
+                "Simulated Platform: $platform_chosen\n" +
+                "Annual Yield: $annual_yield\n\n"
+        )
+        for (month in 1..12 step 2) {
+            current_ivestemnt_value = (user_balance * month * growth_rate) - (user_balance * management_fees)
+            println("Month: $month")
+            println("Current Investment Value: $current_ivestemnt_value")
+
+        }
+        println("---------------------------------------")
+
+    }
+
 
 }
