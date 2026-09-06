@@ -20,7 +20,7 @@ fun main() {
     var user_name = readLine()
 
     val user_id = "001"
-    var user_balance: Double = 50_000.0
+    var user_balance: Double = 50.0
 
 
 
@@ -37,26 +37,46 @@ fun main() {
         var treasury_bills = 0.5 // 50%
         var bank_deposits = 0.3 // 30%
         var corporation_deposits = 0.4 // 40%
-        var current_ivestemnt_value = user_balance
         var growth_rate = 0.2 //20%
+
+        var t_bill = 1_000.0
+        var fixed_deposit = 500.0
+        var company_debt = 900.0
+        var certificate_of_debt = 500.0 // Certificates of deposit
+        var fund_size = t_bill + fixed_deposit + company_debt +certificate_of_debt // total number of unit is 800/5000
+        var profit = 0.0
+        var profit_rate = user_balance / fund_size
+        var Totalprofit = 0.0
+
 
 
         println("--------------------------------------\n" +
                 "Simulator\n" +
                 "--------------------------------------\n" +
                 "User name: $user_name \n" +
-                "Initial Balance: $user_balance \n" +
                 "Simulated Platform: $platform_chosen\n" +
                 "Name of the Fund: $fund1\n" +
+                "Initial Balance: $user_balance\n" +
+                "Fund size: $fund_size\n" +
                 "Annual Yield: $annual_yield\n\n"
+
         )
         val months = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug")
         for (month in months.indices step 2) {
-            current_ivestemnt_value = (user_balance * month * growth_rate) - (user_balance * management_fees)
+            var t_bill_profit = 0.2
+            var fixed_deposit_profit = 0.2
+            var company_debt_profit = 0.001
+            var certificate_of_debt_profit = 0.001
+
+            profit = (((t_bill * t_bill_profit) + (fixed_deposit * fixed_deposit_profit) + (company_debt * company_debt_profit) + (certificate_of_debt * certificate_of_debt_profit)) * profit_rate)
             println("${months[month]} 2026")
-            println("Current Investment Value: $current_ivestemnt_value")
+            Totalprofit = Totalprofit + profit
+            println("Profit: ${Totalprofit + user_balance}")
+
 
         }
+        user_balance = Totalprofit + user_balance
+        println("Balance: $user_balance")
         println("---------------------------------------")
     }
 
