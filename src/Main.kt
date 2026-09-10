@@ -101,7 +101,60 @@ fun main() {
 
     //Treasury Bonds
     fun TB() {
-        //
+        println("--------------Welcome to  Treasury Bonds-----------")
+
+        println("How much do you want  to invest?")
+        val investment =readln().toDouble()
+
+        // Condition if the amount is less  than  ksh 50000
+
+        if(investment <50000){
+            println("The minimum investment  required is ksh 50000")
+            return // stop running the main function  is the amount is greater the system will ask the next question
+        }else if ( investment > 50000.0 && investment <= 2000000.0) {
+            println("The interestrate for this amount is  2.5")// the bank or the goverment propose the intrest rate
+            println(" Do you agree on that ?")
+
+
+
+           // if()
+        }
+
+
+        val totalinvestment= user_balance +investment
+
+        println("what is the interest rate?")
+        val interestrate =readln().toDouble()
+
+        println("How many years will yiu invest?")
+        val years=readln().toInt()
+
+
+        println("Investment:ksh $investment")
+        println("interestrate:  $interestrate%")
+        println("Years:$years")
+
+
+
+        //create a variable to calculate the interest
+
+        val totalInterest= totalinvestment *interestrate * years /100
+
+        val totalAmount= totalinvestment + totalInterest
+
+
+        println("----- Treasure Bonds-----")
+        println("Name:$user_name")
+        println("Initial Balance: $user_balance")
+        println("Investment: Ksh $investment")
+        println("Total Investment: Ksh $totalinvestment")
+        println("Interestrate: $interestrate%")
+        println("Periode: $years")
+        println("Total interest: $totalInterest %")
+        println("Total amount: $totalAmount")
+
+
+
     }
 
 
