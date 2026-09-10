@@ -101,6 +101,8 @@ fun main() {
 
     //Treasury Bonds
     fun TB() {
+
+
         println("--------------Welcome to  Treasury Bonds-----------")
 
         println("How much do you want  to invest?")
@@ -110,14 +112,34 @@ fun main() {
 
         if(investment <50000){
             println("The minimum investment  required is ksh 50000")
-            return // stop running the main function  is the amount is greater the system will ask the next question
+            return // stop running the main function  if the amount is greater the system will ask the next question
         }else if ( investment > 50000.0 && investment <= 2000000.0) {
+
+           val interestrate = 2.5
             println("The interestrate for this amount is  2.5")// the bank or the goverment propose the intrest rate
             println(" Do you agree on that ?")
 
+            val reply :String=readln().toString()
 
 
-           // if()
+
+            if(reply == "yes"){
+                println("Thank you !!!")
+                println("Let's continue with your investment")
+
+
+
+
+            }else if(reply == "no"){
+                println("we are very  sorry  that is the interest rate  for that amount")
+                return
+            }
+
+
+
+
+
+
         }
 
 
@@ -126,7 +148,7 @@ fun main() {
         println("what is the interest rate?")
         val interestrate =readln().toDouble()
 
-        println("How many years will yiu invest?")
+        println("How many years will you invest in ?")
         val years=readln().toInt()
 
 
