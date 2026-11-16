@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mutobu.financial_literacy_simulator.ui.home.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_treasuryBondsFragment"
+            app:destination="@id/treasuryBondsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/treasuryBondsFragment"
+        android:name="com.mutobu.financial_literacy_simulator.ui.treasurybonds.TreasuryBondsFragment"
+        android:label="Treasury Bonds">
+
+        <action
+            android:id="@+id/action_treasuryBondsFragment_to_treasuryResultsFragment"
+            app:destination="@id/treasuryResultsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/treasuryResultsFragment"
+        android:name="com.mutobu.financial_literacy_simulator.ui.treasurybonds.TreasuryResultsFragment"
+        android:label="Investment Results" />
+
+</navigation>

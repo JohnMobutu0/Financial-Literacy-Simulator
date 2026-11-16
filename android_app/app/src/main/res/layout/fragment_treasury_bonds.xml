@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6FA"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Section label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INVESTMENT OPTIONS"
+            android:textColor="#C69A45"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"/>
+
+        <!-- Main heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Treasury Bonds"
+            android:textColor="#142D4E"
+            android:textSize="29sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Discover how government bonds can help you earn interest over time."
+            android:textColor="#737F91"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"/>
+
+        <!-- Information card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_portfolio_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UNDERSTAND THE OPPORTUNITY"
+                android:textColor="#C69A45"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Invest in the Government"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Treasury Bonds allow you to lend money to the government in return for periodic interest payments and repayment of the principal at maturity."
+                android:textColor="#D8E2EF"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp"/>
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="18dp"
+                android:background="#C69A45"/>
+
+        </LinearLayout>
+
+        <!-- Calculator heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Calculate your returns"
+            android:textColor="#142D4E"
+            android:textSize="21sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Enter your investment details below."
+            android:textColor="#737F91"
+            android:textSize="13sp"/>
+
+        <!-- Calculator card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_investment_card"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <!-- Investment amount -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Investment amount (KSh)"
+                android:textColor="#142D4E"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/investmentAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/bg_investment_card"
+                android:hint="e.g. 100000"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:textColor="#142D4E"
+                android:textColorHint="#A0A8B5"
+                android:textSize="14sp"/>
+
+            <!-- Annual rate -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Annual interest rate (%)"
+                android:textColor="#142D4E"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/annualRateInput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/bg_investment_card"
+                android:hint="e.g. 10"
+                android:inputType="numberDecimal"
+                android:padding="15dp"
+                android:textColor="#142D4E"
+                android:textColorHint="#A0A8B5"
+                android:textSize="14sp"/>
+
+            <!-- Investment period -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Investment period (years)"
+                android:textColor="#142D4E"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/investmentPeriodInput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/bg_investment_card"
+                android:hint="e.g. 2"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textColor="#142D4E"
+                android:textColorHint="#A0A8B5"
+                android:textSize="14sp"/>
+
+            <!-- Calculate button -->
+            <Button
+                android:id="@+id/calculateButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="27dp"
+                android:backgroundTint="#142D4E"
+                android:text="CALCULATE RETURNS"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!-- Disclaimer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:text="Note: This is an educational simulation. Actual Treasury Bond terms, rates, taxes and payment schedules may differ."
+            android:textColor="#8A94A4"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

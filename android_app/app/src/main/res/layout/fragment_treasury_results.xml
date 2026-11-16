@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6FA"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Section label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TREASURY BONDS"
+            android:textColor="#C69A45"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"/>
+
+        <!-- Page heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Your Investment Results"
+            android:textColor="#142D4E"
+            android:textSize="27sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Here is a breakdown of your simulated investment."
+            android:textColor="#737F91"
+            android:textSize="14sp"/>
+
+        <!-- Main results card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_portfolio_card"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL CASH RECEIVED"
+                android:textColor="#D8E2EF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"/>
+
+            <TextView
+                android:id="@+id/resultMaturityAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="KSh 0.00"
+                android:textColor="#FFFFFF"
+                android:textSize="31sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Principal plus all interest payments over the investment term"
+                android:textColor="#D8E2EF"
+                android:textSize="12sp"
+                android:lineSpacingExtra="3dp"/>
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="#C69A45"/>
+
+        </LinearLayout>
+
+        <!-- Breakdown heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Investment breakdown"
+            android:textColor="#142D4E"
+            android:textSize="21sp"
+            android:textStyle="bold"/>
+
+        <!-- Breakdown card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_investment_card"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Principal -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Initial investment"
+                android:textColor="#737F91"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/resultInvestment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="KSh 0.00"
+                android:textColor="#142D4E"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#E8ECF2"/>
+
+            <!-- Annual interest -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Annual interest earned"
+                android:textColor="#737F91"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/resultAnnualInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="KSh 0.00"
+                android:textColor="#142D4E"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#E8ECF2"/>
+
+            <!-- Half year payment -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Interest payment every six months"
+                android:textColor="#737F91"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/resultHalfYearPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="KSh 0.00"
+                android:textColor="#C69A45"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="#E8ECF2"/>
+
+            <!-- Total interest -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total interest over the term"
+                android:textColor="#737F91"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/resultTotalInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="KSh 0.00"
+                android:textColor="#142D4E"
+                android:textSize="19sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!-- Explanation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#FFF5E8"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WHAT THIS MEANS"
+                android:textColor="#A76519"
+                android:textSize="11sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="You receive interest payments periodically. Your original investment (principal) is repaid at maturity, according to the bond's terms."
+                android:textColor="#805F39"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Disclaimer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:text="Educational simulation only. Actual returns may differ due to taxes, fees, bond terms and market conditions."
+            android:textColor="#8A94A4"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
