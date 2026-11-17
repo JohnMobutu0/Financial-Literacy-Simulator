@@ -27,11 +27,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // Setup Database & Repository (Same as Login)
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "investment_simulator_db"
-        ).build()
-        val repository = UserRepository(db.userDao())
+        val db = AppDatabase.getDatabase(applicationContext)
+        val repository = UserRepository(db.userDao(), db.transactionDao())
 
         // Initialize ViewModel
         viewModel = ViewModelProvider(this, RegisterViewModelFactory(repository))[RegisterViewModel::class.java]

@@ -1,5 +1,4 @@
 package com.example.investmentandsavingssimulator.ui
-import com.example.investmentandsavingssimulator.R
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,22 +8,14 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import com.google.android.material.textfield.TextInputEditText
+import com.example.investmentandsavingssimulator.R
 import com.example.investmentandsavingssimulator.data.UserRepository
-import com.example.investmentandsavingssimulator.data.local.UserEntity
-
-
-// THIS IS THE MISSING IMPORT:
 import com.example.investmentandsavingssimulator.data.local.AppDatabase
 import com.example.investmentandsavingssimulator.viewmodel.LoginViewModel
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
-
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,12 +26,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         // 1. SETUP DATABASE & REPOSITORY
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "investment_simulator_db"
-        ).build()
+        val db = AppDatabase.getDatabase(applicationContext)
 
-        val repository = UserRepository(db.userDao())
+        // FIXED: We now pass BOTH the userDao and transactionDao
+        val repository = UserRepository(db.userDao(), db.transactionDao())
 
         // 2. INITIALIZE VIEWMODEL USING THE FACTORY
         viewModel = ViewModelProvider(this, LoginViewModelFactory(repository))[LoginViewModel::class.java]
@@ -50,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val btnGoToRegister = findViewById<Button>(R.id.btnGoToRegister)
-
         val tvError = findViewById<TextView>(R.id.tvError)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
