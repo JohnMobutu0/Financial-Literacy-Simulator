@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:background="#F5F7FA">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarAssetList"
+    <!-- The AppBarLayout stretches the blue color into the camera area -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/design_default_color_primary"
-        app:title="Assets"
-        app:titleTextColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@color/design_default_color_primary">
 
+        <!-- The Toolbar pushes the text down safely -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarAssetList"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:navigationIconTint="@android:color/white"
+            app:title="Money Market Funds"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- The list of funds -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFilteredAssets"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"/>
-</LinearLayout>
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
