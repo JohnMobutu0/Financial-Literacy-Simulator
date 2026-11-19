@@ -37,6 +37,7 @@ abstract class AppDatabase : RoomDatabase() {
                             super.onCreate(db)
                             INSTANCE?.let { database ->
                                 CoroutineScope(Dispatchers.IO).launch {
+
                                     database.assetDao().insertAll(
                                         listOf(
                                             AssetEntity(name = "CIC Money Market Fund", type = "MMF", expectedReturn = "12% p.a.", price = 1.0),
@@ -49,6 +50,44 @@ abstract class AppDatabase : RoomDatabase() {
                                             AssetEntity(name = "Stima SACCO Shares", type = "SACCO", expectedReturn = "15% p.a.", price = 500.0)
                                         )
                                     )
+
+// Add sample SACCO investment options
+                                    if (database.saccoDao().getAllSaccos().isEmpty()) {
+
+                                        database.saccoDao().insertSacco(
+                                            SaccoEntity(
+                                                name = "Stima SACCO",
+                                                description = "Simulated savings and shares investment",
+                                                minimumContribution = 1000.0,
+                                                annualDividendRate = 12.0,
+                                                sharePrice = 100.0,
+                                                totalShares = 10000
+                                            )
+                                        )
+
+                                        database.saccoDao().insertSacco(
+                                            SaccoEntity(
+                                                name = "Mwalimu SACCO",
+                                                description = "Simulated member savings and shares",
+                                                minimumContribution = 2000.0,
+                                                annualDividendRate = 10.0,
+                                                sharePrice = 200.0,
+                                                totalShares = 15000
+                                            )
+                                        )
+
+                                        database.saccoDao().insertSacco(
+                                            SaccoEntity(
+                                                name = "Harambee SACCO",
+                                                description = "Simulated savings and investment shares",
+                                                minimumContribution = 500.0,
+                                                annualDividendRate = 11.0,
+                                                sharePrice = 50.0,
+                                                totalShares = 20000
+                                            )
+                                        )
+                                    }
+
                                 }
                             }
                         }
