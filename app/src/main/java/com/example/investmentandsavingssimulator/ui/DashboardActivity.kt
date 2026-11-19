@@ -66,8 +66,15 @@ class DashboardActivity : AppCompatActivity() {
         val rvCategories = findViewById<RecyclerView>(R.id.rvCategories)
 
         // 6. Setup Categories Grid & Navigation
+        // 6. Setup Categories Grid & Navigation
         val categories = listOf("MMF", "SACCO", "NSE Stocks", "Bonds")
-        val icons = listOf("💵", "🤝", "📈", "🏛️")
+        // Using professional Material icons instead of emojis
+        val icons = listOf(
+            R.drawable.ic_mmf,
+            R.drawable.ic_sacco,
+            R.drawable.ic_stocks,
+            R.drawable.ic_bonds
+        )
 
         val categoryAdapter = CategoryAdapter(categories, icons) { selectedCategory ->
             if (selectedCategory == "MMF") {
@@ -91,13 +98,22 @@ class DashboardActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.user.collect { user ->
                 user?.let {
-                    tvWelcome.text = "Welcome, ${it.username}"
+                    tvWelcome.text = getString(R.string.welcome_user, it.username)
                     tvBalance.text = String.format(Locale.getDefault(), "KES %,.2f", it.virtualCashBalance)
                 }
             }
         }
 
         // 8. Load Data
+        if (userId != -1) {
+            viewModel.loadDashboardData(userId)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Refresh the user data every time the user returns to the Dashboard
+        val userId = intent.getIntExtra("USER_ID", -1)
         if (userId != -1) {
             viewModel.loadDashboardData(userId)
         }

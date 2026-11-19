@@ -1,77 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:background="#F5F7FA">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarMmfDetail"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/design_default_color_primary"
-        app:title="Invest in MMF"
-        app:titleTextColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@color/design_default_color_primary">
 
-    <LinearLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarMmfDetail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:navigationIconTint="@android:color/white"
+            app:title="@string/invest_in_mmf"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="24dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/tvMmfDetailName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CIC MMF"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#333333"/>
-
-        <TextView
-            android:id="@+id/tvMmfDetailYield"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Projected Yield: 12% p.a."
-            android:textColor="#4CAF50"
-            android:textSize="16sp"
-            android:layout_marginBottom="24dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amount to Invest (KES)"
-            android:textSize="14sp"
-            android:textColor="#757575"/>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMmfAmount"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Fund Information Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="e.g. 5000" />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="24dp">
 
-        <Button
-            android:id="@+id/btnInvestMmf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirm Investment"
-            android:layout_marginTop="24dp"
-            app:cornerRadius="8dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="#1E88E5">
 
-        <TextView
-            android:id="@+id/tvMmfError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
-            android:layout_marginTop="8dp"
-            android:visibility="gone"/>
-    </LinearLayout>
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/tvMmfDetailName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/default_fund_name"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvMmfDetailYield"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/default_fund_yield"
+                        android:textColor="#B3E5FC"
+                        android:textSize="16sp"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:id="@+id/tvMmfDetailMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Minimum: KES 1,000"
+                        android:textColor="#FF9800"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Input Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_to_invest"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMmfAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/amount_hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Simulation Live Status Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSimulationStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#E8F5E9"
+                android:layout_marginTop="24dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvYearsPassed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/year_one"
+                        android:textColor="#2E7D32"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvLiveBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/default_live_balance"
+                        android:textColor="#1B5E20"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action Button -->
+            <Button
+                android:id="@+id/btnInvestMmf"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="@string/start_simulation"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                app:cornerRadius="12dp"/>
+
+            <!-- Error/Feedback Text -->
+            <TextView
+                android:id="@+id/tvMmfError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
